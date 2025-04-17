@@ -1,15 +1,17 @@
 import { useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { cn } from "~/lib/utils";
+import { BlockImage } from ".basehub/schema";
+import { Image } from "~/components/Image";
 
 export const DirectionAwareHover = ({
-  imageUrl,
+  file,
   children,
   childrenClassName,
   imageClassName,
   className,
 }: {
-  imageUrl: string;
+  file: Partial<BlockImage>;
   children?: React.ReactNode | string;
   childrenClassName?: string;
   imageClassName?: string;
@@ -82,14 +84,13 @@ export const DirectionAwareHover = ({
               ease: "easeOut",
             }}
           >
-            <img
-              alt="image"
+            <Image
+              file={file}
               className={cn(
                 "h-full w-full object-cover scale-[1.15] transform-gpu",
                 imageClassName
               )}
               loading="lazy"
-              src={`${imageUrl}?quality=100&format=webp`}
             />
           </motion.div>
           <motion.div

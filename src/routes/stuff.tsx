@@ -8,6 +8,7 @@ import { basehub } from '.basehub'
 import { BlurFade } from '~/components/ui/blur-fade'
 import { Marquee } from '~/components/ui/marquee'
 import TechTag from '~/components/tech-tag'
+import { Image } from '~/components/Image'
 
 const stuffQuery = createServerFn({method: "GET"}).handler(async () => {
   const data = await basehub().query({
@@ -77,10 +78,10 @@ function StuffIndexComponent() {
             <div className="mt-6 relative z-10 gap-4 flex flex-col">
               {project.images?.items?.length > 0 && <Marquee pauseOnHover reverse={index % 2 === 0} className="[--duration:20s] -ml-10 -mr-10 mb-4">
                 {project.images.items.map((image, index) => (
-                  <img
+                  <Image
                     key={index}
-                    src={image.image?.url}
-                    alt={`${project._title} preview`}
+                    file={image.image}
+                    width={1280}
                     className="rounded-lg object-cover w-80 h-60 mr-4"
                   />
                 ))}

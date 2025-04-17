@@ -12,7 +12,8 @@ import { createServerFn } from '@tanstack/react-start'
 import { Button } from '~/components/ui/button'
 import { url } from 'inspector'
 import EducationCard from '~/components/EducationCard'
-import { EducationItem } from '.basehub/schema'
+import { BlockImage, EducationItem } from '.basehub/schema'
+import { Image } from '~/components/Image'
 
 
 const homeQuery = createServerFn({method: "GET"}).handler(async () => {
@@ -34,6 +35,10 @@ const homeQuery = createServerFn({method: "GET"}).handler(async () => {
       blurb: true,
       aboutMe: {
         html: true
+      },
+      avatar: {
+        url: true,
+        alt: true,
       },
       education: {
         items: {
@@ -81,7 +86,7 @@ function Home() {
           </div>
           <div className="max-w-32 max-h-32 h-full w-full rounded-full overflow-hidden flex-1 min-w-16 min-h-16">
             <BlurFade delay={0.3} inView>
-              <img src="me.png"/>
+              <Image file={state.index.avatar} width={256}/>
             </BlurFade>
           </div>
         </div>

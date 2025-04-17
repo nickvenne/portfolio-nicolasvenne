@@ -66,6 +66,9 @@ export const Route = createRootRoute({
         href: "/favicon-16x16.png",
       },
       { rel: "manifest", href: "/site.webmanifest", color: "#fffff" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: true},
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" },
     ],
     // Explicitly tell TanStack Router that you don't want external scripts during SSR
     noScriptTags: true,

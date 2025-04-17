@@ -65,7 +65,7 @@ const convertTimeline = (timeline: TimelineType): TimelineEntry => {
               (image, index) =>
                 image.image?.url && (
                   <DirectionAwareHover
-                    imageUrl={image.image.url}
+                    file={image.image}
                     key={index}
                     className="w-full h-auto"
                   >
